@@ -4,7 +4,6 @@
   </div>
 </template>
 <script>
-import * as THREE from "three";
 import { SceneLines } from "./three/scene_lines";
 // import { lineGen } from "../util/lineGen";
 
@@ -115,7 +114,7 @@ export default {
     this.$watch(
       () => this.scroll,
       (val) => {
-        //　差分
+        //差分
         const diff = val - prevScroll;
         rotateValue += diff;
         this.scrollOnAnimation({ scroll: rotateValue, diff });
@@ -166,7 +165,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style scoped>
 #three_lines {
   position: relative;
   top: 0;

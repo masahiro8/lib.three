@@ -1,10 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-const rotationToRadian = (r) => {
-  return (r / 180) * Math.PI;
-};
-
 export const SceneTriangle = () => {
   let scene;
   let camera;
@@ -73,12 +69,12 @@ export const SceneTriangle = () => {
   const initTriangle = ({ r, center, color, lineColor, subdivide, speed }) => {
     const material = new THREE.LineBasicMaterial({
       color,
-      linewidth: 1
+      linewidth: 1,
     });
 
     const materialLine = new THREE.LineBasicMaterial({
       color: lineColor,
-      linewidth: 1
+      linewidth: 1,
     });
 
     const pointsConfig = new Array(subdivide).fill().map((v, index) => {
@@ -96,13 +92,13 @@ export const SceneTriangle = () => {
     const deg = _deg;
     let vertices = [];
 
-    //　座標
-    const getPosition = ({ r, deg_x, deg_y, deg_z, center, speed }) => {
+    //座標
+    const getPosition = ({ r, deg_x, deg_y, center, speed }) => {
       const x =
         r * Math.cos((deg_x + deg * speed) * (Math.PI / 180)) + center.x;
       const y =
         r * Math.sin((deg_y + deg * speed) * (Math.PI / 180)) + center.y;
-      const z = r * 0.01 * Math.tan((deg_z + deg) * (Math.PI / 180)) + center.z;
+      // const z = r * 0.01 * Math.tan((deg_z + deg) * (Math.PI / 180)) + center.z;
       return { x, y, z: center.z };
     };
 
@@ -150,6 +146,6 @@ export const SceneTriangle = () => {
     setOrbitCont,
     initTriangle,
     drawTriangle,
-    clear
+    clear,
   };
 };
