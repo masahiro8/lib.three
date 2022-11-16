@@ -4,7 +4,6 @@
   </div>
 </template>
 <script>
-import * as THREE from "three";
 import { SceneTriangle } from "./three/scene_triangles";
 
 export default {
@@ -54,6 +53,15 @@ export default {
       speed: 4,
     });
 
+    s.initTriangle({
+      r: 22,
+      center: { x: 0, y: 0, z: -10 },
+      color: 0xcccccc,
+      lineColor: 0x000000,
+      subdivide: 4,
+      speed: 0.5,
+    });
+
     this.scene = s;
 
     this.$watch(
@@ -65,14 +73,14 @@ export default {
     );
   },
   methods: {
-    scrollOnAnimation({ scroll, diff }) {
+    scrollOnAnimation() {
       const onPlay = () => {};
       onPlay();
     },
   },
 };
 </script>
-<style lang="scss" scoped>
+<style scoped>
 #three_lines {
   position: relative;
   top: 0;
